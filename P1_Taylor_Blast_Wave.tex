@@ -1,0 +1,613 @@
+% Unit P1. Compile from science-english/ with:  xelatex P1_Taylor_Blast_Wave.tex  (twice)
+\documentclass[11pt,a4paper]{article}
+\usepackage{common/lod}
+\hypersetup{pdftitle={The Language of Discovery - Unit P1},pdfauthor={}}
+
+\begin{document}
+
+\unittitle{P1}{Weighing an Explosion}{用尺子和时钟称量一场爆炸：Taylor 的爆炸波估算}{改编自 G. I. Taylor, \textit{Proc.\ R.\ Soc.\ A} 201 (1950) \quad 难度 ★ \quad 物理考点：量纲分析、流体力学、激波}
+
+\sub{本单元目标}
+\begin{itemize}
+  \item \textbf{语言}：掌握表达量级与标度的句式（\textit{scales as, of the order of, negligible compared with}），能流利读出含指数和比例关系的公式。
+  \item \textbf{词汇}：掌握约 50 个词条，覆盖通用学术词、专业术语和进阶词。
+  \item \textbf{数理}：用量纲分析导出 $R\propto t^{2/5}$，由真实数据估算爆炸能量，并逐一检验模型的假设。
+  \item \textbf{学术能力}：学会区分标度论证、完整理论和实验数据各自能说明什么，写出第一篇英文摘要。
+\end{itemize}
+
+\sub{学习安排（共约 3 小时 40 分钟，其中课内 2 小时）}
+\begin{center}
+\small
+\begin{tabular}{p{1.2cm}p{5.8cm}p{1.4cm}p{6.3cm}}
+\toprule
+\headrow 阶段 & 内容 & 时间 & 要求 \\
+\midrule
+课前 & Main Text 通读，Vocabulary 预习 & 40 min & 带着 Reading Check 的问题读，遇到公式先读出声 \\
+\midrule
+\multirow{5}{*}{课内} & Warm-up 与预习检查 & 10 min & 口头讨论 \\
+ & 精读难点段落（¶4、¶6、¶8），Reading Check & 25 min & 说清论证结构，不逐句翻译 \\
+ & Language Focus & 10 min & 朗读公式，改错和翻译 \\
+ & Work It Out 与 Code Lab & 60 min & 用英文写关键步骤，可用计算器 \\
+ & Output A：口头讲解 & 15 min & 2 分钟英文讲解 \\
+\midrule
+课后 & Competition Corner，Output B，词汇复习 & 约 1 h & 书面完成 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\module{Warm-up}{热身}{课内 · 10 min}
+\begin{enumerate}[label=\textbf{\arabic*.}]
+  \item \textbf{A delayed wave.} Enrico Fermi watched the first atomic test from about ten miles (16 km) away. Estimate how long the blast took to reach him. Why might your estimate be slightly too long?
+  \item \textbf{A sense of scale.} One kiloton of TNT is defined as $4.184\times10^{12}\unit{J}$. Assume that Shanghai uses about $2\times10^{11}\unit{kWh}$ of electricity per year. For how long could the energy of a 17-kiloton explosion supply the city?
+  \item \textbf{A thought experiment.} You are given a photograph of an expanding fireball, with a time stamp and a scale bar, but no other information. Which physical quantities would you want to know in order to estimate the energy of the explosion? Which do you think you could ignore?
+\end{enumerate}
+
+\clearpage
+\maintextlayout
+\setcounter{lodpara}{0}
+
+\module{Main Text}{正文}{课前 · 40 min}
+
+{\centering\sffamily\Large\bfseries\color{lodnavy} Weighing an Explosion with a Ruler and a Clock\par}
+\vspace{6pt}
+
+\begin{abstractbox}
+\small\textbf{Abstract.} In 1950 G. I. Taylor estimated the energy of the first atomic explosion using a series of published photographs. This article reconstructs his argument. We show that dimensional analysis fixes how the radius of a strong blast wave grows with time, $R\propto t^{2/5}$, and that the data follow this law closely. A full fluid-dynamical calculation supplies the remaining constant, which turns out to be close to unity. The resulting energy, about 17 kilotons of TNT, is of the same order as modern estimates. The case shows how much a simple scaling argument can reveal, provided that its assumptions are examined with care.
+\end{abstractbox}
+
+\artsec{1\quad Introduction}
+
+\pn At 05:29 on 16 July 1945, the first nuclear device was \gl{detonate}{起爆}detonated in the New Mexico desert. High-speed cameras recorded the growth of the \gl{fireball}{火球}fireball, with successive frames a fraction of a millisecond apart. Two years later, some of these records were \gl{declassify}{解密}declassified. Each frame carried a \gl{time stamp}{时间标记}time stamp and a distance scale, but there was no statement of the energy released. To most readers the pictures were \gl{merely}{仅仅}merely dramatic. To Sir Geoffrey Taylor, a Cambridge \gl{fluid dynamicist}{流体力学家}fluid dynamicist, they were data.
+
+\pn Taylor was unusually well prepared. In 1941 the British government had asked him what a very intense explosion would do to the surrounding air, and he had predicted how the resulting \gl{blast wave}{爆炸波}blast wave should grow. His report remained \gl{classified}{保密的}classified until 1949. In 1950 he published the theory, together with a comparison with the photographs and an estimate of the energy. According to his biographer, the US Army \gl{rebuke}{斥责}mildly rebuked him for doing so. This article reconstructs the central argument.
+
+\artsec{2\quad The scaling argument}
+
+\pn Suppose that a large energy $E$ is released almost instantaneously at a point in still air of density $\rho$. A spherical \gl{shock front}{激波波阵面}shock front rushes outward, \gl{sweep up}{扫起、卷起}sweeping up the air in its path (Fig.~\ref{fig:blast}a). We make two assumptions. First, the source is effectively a point: the mass of air swept up far exceeds the mass of the device, whose size and composition are soon forgotten. Second, the shock is strong: the pressure just behind the front is so much greater than the \gl{ambient}{周围环境的}ambient pressure that the latter is \gl{negligible}{可忽略的}negligible.
+
+\pn Under these assumptions, only three quantities can determine the radius $R$ of the front: $E$, $\rho$ and the time $t$ since detonation. Their dimensions are $[E]=\mathrm{M\,L^2\,T^{-2}}$, $[\rho]=\mathrm{M\,L^{-3}}$ and $[t]=\mathrm{T}$, and only one combination of them has the dimensions of length. Therefore
+\begin{equation}
+  R = S\left(\frac{E}{\rho}\right)^{1/5} t^{2/5},
+  \label{eq:scaling}
+\end{equation}
+where $S$ is a \gl{dimensionless}{无量纲的}dimensionless constant that may depend on $\gamma$, the \gl{ratio of specific heats}{比热比}ratio of specific heats of air, but not on $E$, $\rho$ or $t$. Without solving a single differential equation, we have obtained the \gl{exponent}{指数}exponent of time.
+
+\begin{figure}[t]
+\centering
+\begin{minipage}[c]{0.43\linewidth}
+\centering
+\begin{tikzpicture}[scale=1,font=\footnotesize]
+  \shade[inner color=orange!30,outer color=orange!45] (0,0) circle (2.0);
+  \fill[lodnavy!55] (0,0) circle (2.0);
+  \shade[inner color=orange!20,outer color=orange!45] (0,0) circle (1.82);
+  \draw[lodnavy,line width=0.9pt] (0,0) circle (2.0);
+  \fill (0,0) circle (1.2pt);
+  \draw[-{Stealth},thick] (0,0) -- node[above,sloped,pos=0.55]{$R(t)$} (35:2.0);
+  \node[align=center] at (0,-0.75) {hot, rarefied\\interior};
+  \foreach \a in {150,180,210,325}{\draw[-{Stealth},lodrust,thick] (\a:2.08) -- (\a:2.5);}
+  \node[lodrust,align=center,anchor=south] at (0,2.28) {shock front};
+  \node[align=center,anchor=north] at (0,-2.2) {still air: $\rho$, $p_0$};
+\end{tikzpicture}\\[-2pt]
+{\footnotesize (a)}
+\end{minipage}%
+\begin{minipage}[c]{0.57\linewidth}
+\centering
+\begin{tikzpicture}
+\begin{axis}[width=\linewidth,height=5.2cm,xmin=0,xmax=1.05,ymin=0,ymax=1.08,
+  xlabel={$r/R$},ylabel={value / value at the front},axis lines=left,
+  xtick={0,0.2,0.4,0.6,0.8,1},ytick={0,0.5,1},enlargelimits=false,clip=false]
+  \addplot[lodnavy,thick] table[x=x,y=rho]{figures/P1/sedov_profile.dat};
+  \addplot[lodrust,thick] table[x=x,y=p]{figures/P1/sedov_profile.dat};
+  \addplot[black!60,thick,dashed] table[x=x,y=v]{figures/P1/sedov_profile.dat};
+  \node[lodnavy,font=\footnotesize] at (axis cs:0.73,0.13) {density};
+  \node[lodrust,font=\footnotesize] at (axis cs:0.32,0.43) {pressure};
+  \node[black!60,font=\footnotesize] at (axis cs:0.40,0.21) {speed};
+\end{axis}
+\end{tikzpicture}\\[-2pt]
+{\footnotesize (b)}
+\end{minipage}
+\caption{(a) A spherical blast wave. (b) The self-similar profile for $\gamma=1.4$, computed from the equations of compressible flow. About 80\% of the swept-up air lies in the outer 10\% of the radius.}
+\label{fig:blast}
+\end{figure}
+
+\pn The same reasoning implies more. Since the problem contains no other length or time scale, the flow must look identical at every moment, provided that distances are measured in units of $R(t)$. Such a flow is called \gl{self-similar}{自相似的}self-similar. Figure~\ref{fig:blast}b shows its \gl{profile}{分布曲线}profile: most of the air \gl{pile up}{堆积}piles up in a thin, dense shell just behind the front, while the interior is hot, \gl{rarefied}{稀薄的}rarefied and nearly uniform in pressure.
+
+\pn Dimensional analysis cannot yield the value of $S$, however, and here popular accounts often \gl{mislead}{误导}mislead. Taylor did not stop at a scaling argument. He substituted a self-similar form into the equations of motion, \gl{continuity}{连续性（方程）}continuity and state for a \gl{compressible}{可压缩的}compressible gas, and integrated them step by step. Rearranging Eq.~\eqref{eq:scaling} gives
+\begin{equation}
+  E = K\,\frac{\rho R^5}{t^2}, \qquad K = S^{-5},
+  \label{eq:energy}
+\end{equation}
+and for $\gamma=1.4$ he found $K=0.856$, so that $S\approx1.03$, remarkably close to \gl{unity}{（数学）1}unity.
+
+\artsec{3\quad Comparison with the photographs}
+
+\pn Table~\ref{tab:data} lists the radii that Taylor measured. Taking \gl{logarithm}{对数}logarithms of Eq.~\eqref{eq:scaling} gives $\log R = \tfrac25\log t + \text{constant}$, so a log--log plot should be a straight line of \gl{slope}{斜率}slope $2/5$. Figure~\ref{fig:loglog} shows that, from $R\approx20\unit{m}$ to $185\unit{m}$, the points follow this line closely over more than two decades in time. Taylor found that $R^5/t^2\approx6.67\times10^{13}\unit{m^5\,s^{-2}}$. With $\rho=1.25\unit{kg\,m^{-3}}$, Eq.~\eqref{eq:energy} then gives $E\approx7.1\times10^{13}\unit{J}$, equivalent to about 17 \gl{kiloton}{千吨（TNT 当量）}kilotons of TNT.
+
+\begin{table}[t]
+\centering\small
+\caption{Radius of the blast wave at time $t$ after detonation (Taylor 1950).}
+\label{tab:data}
+\begin{tabular}{rrrrrr}
+\toprule
+\headrow $t$ (ms) & $R$ (m) & $t$ (ms) & $R$ (m) & $t$ (ms) & $R$ (m) \\
+\midrule
+0.10 & 11.1 & 1.08 & 38.9 & 3.80 & 62.9 \\
+0.24 & 19.9 & 1.22 & 41.0 & 4.07 & 64.3 \\
+0.38 & 25.4 & 1.36 & 42.8 & 4.34 & 65.6 \\
+0.52 & 28.8 & 1.50 & 44.4 & 4.61 & 67.3 \\
+0.66 & 31.9 & 1.65 & 46.0 & 15.0 & 106.5 \\
+0.80 & 34.2 & 1.79 & 46.9 & 25.0 & 130.0 \\
+0.94 & 36.3 & 1.93 & 48.7 & 34.0 & 145.0 \\
+     &      & 3.26 & 59.0 & 53.0 & 175.0 \\
+     &      & 3.53 & 61.1 & 62.0 & 185.0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{loglogaxis}[width=0.86\linewidth,height=6.1cm,xmin=0.06,xmax=100,ymin=8,ymax=300,
+  xlabel={$t$ (ms)},ylabel={$R$ (m)},grid=major,grid style={black!12},
+  log ticks with fixed point,legend pos=north west,clip=false]
+  \addplot[lodrust,thick,domain=0.07:90,samples=2] {36.7*x^0.4};
+  \addlegendentry{$R^5/t^2=6.67\times10^{13}\,\mathrm{m^5\,s^{-2}}$ (slope 2/5)}
+  \addplot[only marks,mark=+,mark size=2.6pt,lodnavy,thick] table[x=t,y=R]{figures/P1/taylor_table.dat};
+  \addlegendentry{Taylor's measurements}
+  \draw[-{Stealth},black!70] (axis cs:0.26,10.2) node[right,font=\footnotesize]{earliest point} -- (axis cs:0.115,11);
+\end{loglogaxis}
+\end{tikzpicture}
+\caption{Taylor's measurements on logarithmic axes. Figure redrawn from Table~\ref{tab:data}.}
+\label{fig:loglog}
+\end{figure}
+
+\pn How good is this figure? A recent \gl{radiochemical}{放射化学的}radiochemical analysis puts the total yield at $24.8\pm2$ kilotons, against a long-standing official value of 21. Taylor's result looks low, but two points should be kept in mind. His $E$ counts only the energy that was not radiated away beyond the fireball. It also depends on $\gamma$: for $\gamma=1.3$, a value more appropriate to very hot air, $K$ rises to $1.167$ and the estimate to about 23 kilotons. Taylor preferred the lower figure, arguing that radiation and high-temperature effects roughly cancelled each other.
+
+\artsec{4\quad Discussion}
+
+\pn Equation~\eqref{eq:energy} is highly sensitive to its input: because $E\propto R^5$, a 2\% error in the radius becomes a 10\% error in the energy. Both assumptions must also fail eventually. At the earliest times the device itself and radiation still matter, and the first point in Table~\ref{tab:data} does fall below the line. At late times the shock weakens, the ambient pressure can no longer be ignored, and Eq.~\eqref{eq:scaling} must break down. The surprise is not that the law has limits, but that it holds so well between them, even though a constant $\gamma$ is certainly untrue at such temperatures.
+
+\pn The same law appears far beyond this case. John von Neumann and Leonid Sedov reached it independently in the 1940s, and today the Sedov--Taylor phase is a standard stage in the evolution of \gl{supernova remnant}{超新星遗迹}supernova remnants, whose energies are some thirty orders of magnitude larger. Yet the lesson is not that calculation can be \gl{dispense with}{免去、省去}dispensed with. A \gl{back-of-the-envelope}{粗略估算的}back-of-the-envelope argument tells you what to plot. Only a full theory tells you what the numbers mean, and only the data can tell you whether either is right.
+
+\artsec{References}
+{\footnotesize\raggedright
+Batchelor, G. K. (1996). \textit{The Life and Legacy of G. I. Taylor}. Cambridge University Press.\par
+Mack, J. E. (1947). \textit{Semi-popular motion picture record of the Trinity explosion}. MDDC-221, US Atomic Energy Commission.\par
+Selby, H. D., \textit{et al.} (2021). A new yield assessment for the Trinity nuclear test, 75 years later. \textit{Nuclear Technology} 207, S321--S325.\par
+Sedov, L. I. (1946). Propagation of strong shock waves. \textit{J. Appl. Math. Mech.} 10, 241--250.\par
+Taylor, G. I. (1950). The formation of a blast wave by a very intense explosion. I. Theoretical discussion; II. The atomic explosion of 1945. \textit{Proc. R. Soc. A} 201, 159--174; 175--186.\par}
+
+\clearpage
+\normallayout
+
+\module{Vocabulary}{词汇}{课前预习 · 课后复习}
+
+\small
+\renewcommand{\arraystretch}{1.12}
+\begin{longtable}{>{\raggedright\arraybackslash}p{5.0cm}>{\raggedright\arraybackslash}p{3.3cm}>{\raggedright\arraybackslash}p{6.8cm}}
+\toprule
+\headrow Word & 释义 & Collocation / example \\
+\midrule
+\endfirsthead
+\toprule
+\headrow Word & 释义 & Collocation / example \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\multicolumn{3}{l}{\sffamily\bfseries\color{lodnavy}A. General academic words 通用学术词} \\[2pt]
+reconstruct \ipa{ˌriːkənˈstrʌkt} & v. 重构、还原 & reconstruct an argument \\
+assumption \ipa{əˈsʌmpʃn} & n. 假设 & make / examine an assumption \\
+determine \ipa{dɪˈtɜːmɪn} & v. 决定；测定 & determine the radius \\
+imply \ipa{ɪmˈplaɪ} & v. 意味着、蕴含 & The result implies that \dots \\
+yield \ipa{jiːld} & v. 得出；n. 爆炸当量、产额 & yield a value; the total yield \\
+estimate \ipa{ˈestɪmət} (n.) \ipa{ˈestɪmeɪt} (v.) & n./v. 估算 & a modern estimate; estimate the energy \\
+exceed \ipa{ɪkˈsiːd} & v. 超过 & far exceed the mass of the device \\
+effectively \ipa{ɪˈfektɪvli} & adv. 实际上、等效地 & effectively a point \\
+instantaneously \ipa{ˌɪnstənˈteɪniəsli} & adv. 瞬时地 & released almost instantaneously \\
+intense \ipa{ɪnˈtens} & adj. 强烈的 & a very intense explosion \\
+substitute \ipa{ˈsʌbstɪtjuːt} & v. 代入 & substitute A into B（注意介词 into） \\
+integrate \ipa{ˈɪntɪɡreɪt} & v. 积分 & integrate the equations step by step \\
+rearrange \ipa{ˌriːəˈreɪndʒ} & v. 移项、整理 & Rearranging Eq.~(1) gives \dots \\
+uniform \ipa{ˈjuːnɪfɔːm} & adj. 均匀的 & nearly uniform in pressure \\
+appropriate \ipa{əˈprəʊpriət} & adj. 合适的 & appropriate to very hot air \\
+sensitive \ipa{ˈsensətɪv} & adj. 敏感的 & highly sensitive to its input \\
+independently \ipa{ˌɪndɪˈpendəntli} & adv. 独立地 & reach a result independently \\
+phase \ipa{feɪz} & n. 阶段 & the Sedov--Taylor phase \\
+evolution \ipa{ˌiːvəˈluːʃn} & n. 演化 & the evolution of supernova remnants \\
+eventually \ipa{ɪˈventʃuəli} & adv. 最终 & must fail eventually \\[4pt]
+\multicolumn{3}{l}{\sffamily\bfseries\color{lodnavy}B. Technical terms 专业术语} \\[2pt]
+detonate \ipa{ˈdetəneɪt} & v. 起爆（n. detonation） & the time since detonation \\
+blast wave \ipa{blɑːst weɪv} & n. 爆炸波 & a strong blast wave \\
+shock front \ipa{ʃɒk frʌnt} & n. 激波波阵面 & just behind the shock front \\
+fireball \ipa{ˈfaɪəbɔːl} & n. 火球 & the growth of the fireball \\
+dimensional analysis \ipa{daɪˈmenʃənl əˈnæləsɪs} & n. 量纲分析 & Dimensional analysis fixes \dots \\
+dimensionless \ipa{daɪˈmenʃənləs} & adj. 无量纲的 & a dimensionless constant \\
+self-similar \ipa{ˌself ˈsɪmələ} & adj. 自相似的 & a self-similar flow \\
+ambient \ipa{ˈæmbiənt} & adj. 周围环境的 & ambient pressure \\
+density \ipa{ˈdensəti} & n. 密度 & air of density $\rho$ \\
+ratio of specific heats \ipa{ˈreɪʃiəʊ, spəˈsɪfɪk hiːts} & n. 比热比 & the ratio of specific heats of air \\
+compressible \ipa{kəmˈpresəbl} & adj. 可压缩的 & compressible flow \\
+continuity \ipa{ˌkɒntɪˈnjuːəti} & n. 连续性 & the equation of continuity \\
+exponent \ipa{ɪkˈspəʊnənt} & n. 指数 & the exponent of time \\
+logarithm \ipa{ˈlɒɡərɪðəm} & n. 对数 & take logarithms of an equation \\
+slope \ipa{sləʊp} & n. 斜率 & a straight line of slope 2/5 \\
+radius \ipa{ˈreɪdiəs}, pl. radii \ipa{ˈreɪdiaɪ} & n. 半径 & measure the radii \\
+kiloton \ipa{ˈkɪlətʌn} & n. 千吨（TNT 当量） & 17 kilotons of TNT \\
+radiochemical \ipa{ˌreɪdiəʊˈkemɪkl} & adj. 放射化学的 & a radiochemical analysis \\
+supernova remnant \ipa{ˌsuːpəˈnəʊvə ˈremnənt} & n. 超新星遗迹 & the evolution of a supernova remnant \\
+fluid dynamicist \ipa{ˈfluːɪd daɪˈnæmɪsɪst} & n. 流体力学家 & a Cambridge fluid dynamicist \\[4pt]
+\multicolumn{3}{l}{\sffamily\bfseries\color{lodnavy}C. Advanced words 进阶词} \\[2pt]
+merely \ipa{ˈmɪəli} & adv. 仅仅 & merely dramatic \\
+rebuke \ipa{rɪˈbjuːk} & v./n. 斥责 & mildly rebuke sb.\ for doing sth. \\
+sweep up \ipa{swiːp ʌp} & phr. 扫起、卷起 & sweep up the air in its path \\
+pile up \ipa{paɪl ʌp} & phr. 堆积 & Most of the air piles up behind the front. \\
+rarefied \ipa{ˈreərɪfaɪd} & adj. 稀薄的 & a hot, rarefied interior \\
+mislead \ipa{ˌmɪsˈliːd} & v. 误导（过去式 misled） & Popular accounts often mislead. \\
+unity \ipa{ˈjuːnəti} & n. （数学）1 & close to unity \\
+dispense with \ipa{dɪˈspens wɪð} & phr. 免去、省去 & Calculation cannot be dispensed with. \\
+back-of-the-envelope \ipa{ˌbæk əv ði ˈenvələʊp} & adj. 粗略估算的 & a back-of-the-envelope argument \\
+break down \ipa{breɪk daʊn} & phr. （理论）失效 & The equation must break down at late times. \\
+\end{longtable}
+\normalsize
+
+\sub{Word Work}
+Complete each sentence with one word or phrase from the list, changing its form where necessary.
+
+{\small\textit{negligible \quad break down \quad unity \quad exceed \quad substitute \quad yield \quad sensitive \quad dispense with}}
+
+\begin{enumerate}[label=\textbf{\arabic*.}]
+  \item Air resistance is \underline{\hspace{2cm}} for a heavy ball falling a short distance.
+  \item The ideal-gas law begins to \underline{\hspace{2cm}} at very high densities.
+  \item \underline{\hspace{2cm}} this expression into Eq.~(2) gives the final result.
+  \item Because the ratio is very close to \underline{\hspace{2cm}}, the two quantities are almost equal.
+  \item The speed of the electrons \underline{\hspace{2cm}} half the speed of light.
+  \item The output is highly \underline{\hspace{2cm}} to small changes in temperature.
+  \item Solving this equation numerically \underline{\hspace{2cm}} a value of about 1.03.
+  \item With a good symmetry argument, we can \underline{\hspace{2cm}} most of the algebra.
+\end{enumerate}
+
+\module{Reading Check}{阅读理解}{课内 · 与精读合计 25 min}
+
+\sub{A. True or false? Give the paragraph that supports your answer.}
+\begin{enumerate}[label=\textbf{\arabic*.}]
+  \item Taylor developed his theory after he had seen the photographs.
+  \item Dimensional analysis alone gives both the exponent of $t$ and the value of $S$.
+  \item Taylor's value of $E$ includes all the energy released by the explosion.
+  \item The first point in Table~\ref{tab:data} supports the scaling law as well as the others do.
+\end{enumerate}
+
+\sub{B. Answer in one or two sentences of English.}
+\begin{enumerate}[label=\textbf{\arabic*.},resume]
+  \item Which physical quantities does each of the two assumptions in ¶3 allow us to remove from the problem?
+  \item ¶1 ends: ``To most readers the pictures were merely dramatic. To Sir Geoffrey Taylor \dots, they were data.'' What does the contrast tell us about how a scientist looks at a picture?
+  \item According to ¶6, what do popular accounts often get wrong about Taylor's work?
+  \item Why does the author call the success of the law a ``surprise'' in ¶9?
+\end{enumerate}
+
+\sub{C. Thinking like a referee.}
+\begin{enumerate}[label=\textbf{\arabic*.},resume]
+  \item Match each function with a paragraph: (a) states the model's limits; (b) sets out the assumptions; (c) compares the result with an independent measurement; (d) draws a general lesson.
+  \item The bomb was fired on a tower about 30 m above the ground, and the photographs show the \emph{luminous edge} of the fireball. Name two things that the article assumes without saying, and explain why each one could matter.
+\end{enumerate}
+
+\module{Language Focus}{语言聚焦：描述量级与标度}{课内 · 10 min}
+
+物理英语里，比例和量级有一套固定说法。下面这些句式几乎每篇论文都会用到。
+
+\vspace{-6pt}
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{p{4.4cm}p{7.0cm}p{3.7cm}}
+\toprule
+\headrow Pattern & Example & 注意 \\
+\midrule
+$A$ is proportional to $B$ & $E$ is proportional to the fifth power of $R$. & 介词用 to，不用 with \\
+$A$ scales as $B$ & The radius scales as $t^{2/5}$. & 后接幂律，也说 scales like \\
+$A$ is of the order of $B$ & The energy is of the order of $10^{14}$ J. & 美式常用 on the order of \\
+$n$ orders of magnitude larger & The energy is thirty orders of magnitude larger. & 不能省略 of magnitude \\
+$A$ is negligible compared with $B$ & $p_0$ is negligible compared with the pressure behind the front. & 被忽略的量作主语 \\
+$A$ is much greater than $B$ & $p_2\gg p_0$ reads ``$p_2$ is much greater than $p_0$''. & $\ll$ 读 much less than \\
+to within $x$ & The two values agree to within 30\%. & 表示误差不超过 \\
+close to unity & $S$ is close to unity. & 比 close to one 更正式 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{-8pt}
+
+\sub{A. Read aloud.}
+(1) $R\propto t^{2/5}$ \qquad (2) $E=K\rho R^5/t^2$ \qquad (3) $p_2\gg p_0$ \qquad (4) $\delta E/E\approx5\,\delta R/R$ \qquad (5) $E\sim10^{14}\unit{J}$
+
+\sub{B. Correct the error in each sentence.}
+\begin{enumerate}[label=\textbf{\arabic*.}]
+  \item The radius is proportional with $t^{2/5}$.
+  \item The pressure behind the front is negligible compared with the ambient pressure, because the shock is strong.
+  \item The energy of the explosion is the order of $10^{14}$ J.
+  \item Since $E$ scales as $R^5$, doubling the radius makes the energy five times larger.
+  \item A supernova releases thirty orders more energy than this explosion.
+\end{enumerate}
+
+\sub{C. Translate into English.}
+\begin{enumerate}[label=\textbf{\arabic*.}]
+  \item 爆炸波的半径随时间的 2/5 次方增长。
+  \item 激波后的压强约为环境压强的 80 倍，因此后者可以忽略。
+  \item 这一估计与现代结果的偏差在 30\% 左右。
+  \item 半径上 2\% 的误差会使能量产生 10\% 的误差。
+\end{enumerate}
+
+\module{Work It Out}{动手推演}{课内 · 45 min}
+
+Work on paper and write the key steps in English. Use $\rho=1.25\unit{kg\,m^{-3}}$, ambient pressure $p_0=1.01\times10^5\unit{Pa}$, sound speed $c=340\unit{m\,s^{-1}}$ and $1\unit{kt}=4.184\times10^{12}\unit{J}$.
+
+\task{Task 1\quad Three variables, one length}{10 min}
+\begin{enumerate}[label=(\alph*)]
+  \item Write $R=S\,E^{a}\rho^{b}t^{c}$. Find $a$, $b$ and $c$ by matching dimensions.
+  \item Now keep the ambient pressure $p_0$ in the problem. Find a dimensionless group $\Pi$ that contains $p_0$, $E$, $\rho$ and $t$, with $p_0$ to the first power. Explain why dimensional analysis can now only give $R=(Et^2/\rho)^{1/5}f(\Pi)$, where $f$ is an unknown function.
+  \item Setting $\Pi=1$ gives a characteristic time $t^*$ and radius $R^*$. Find expressions for both, then evaluate them for $E=7.1\times10^{13}\unit{J}$. What is the physical meaning of $R^*$?
+\end{enumerate}
+
+\task{Task 2\quad Reading the data}{15 min}
+\begin{enumerate}[label=(\alph*)]
+  \item Compute $Q=R^5/t^2$ for $t=0.10$, $0.94$, $15.0$ and $62.0\unit{ms}$. What do you notice about the first value? What about the last?
+  \item Use the points $t=0.24\unit{ms}$ and $t=62.0\unit{ms}$ to estimate the slope of the log--log plot. Compare it with $2/5$.
+  \item Using Taylor's values $Q=6.67\times10^{13}\unit{m^5\,s^{-2}}$ and $K=0.856$, calculate $E$ in joules and in kilotons of TNT.
+  \item \textit{A referee's eye.} Taylor's paper fits the line $\tfrac52\log_{10}R-\log_{10}t=11.915$, with $R$ in cm and $t$ in s. Find the value of $Q$ in SI units that this implies, and compare it with the value in (c). Comment on what you find.
+\end{enumerate}
+
+\task{Task 3\quad Testing the assumptions}{15 min}
+For a strong shock in a perfect gas, the conditions just behind the front are $\rho_2=\frac{\gamma+1}{\gamma-1}\rho$ and $p_2=\frac{2}{\gamma+1}\rho U^2$, where $U$ is the speed of the front. (You will derive these in Competition Corner.)
+\begin{enumerate}[label=(\alph*)]
+  \item Show from Eq.~(1) that $U=\dfrac{2R}{5t}$.
+  \item For $\gamma=1.4$, complete this table. Use $T_2=p_2/(\rho_2 r)$ with $r=287\unit{J\,kg^{-1}\,K^{-1}}$.
+
+  \smallskip
+  {\small
+  \begin{tabular}{cccccc}
+  \toprule
+  \headrow $t$ (ms) & $R$ (m) & $U$ (m/s) & Mach number $U/c$ & $p_2/p_0$ & $T_2$ (K) \\
+  \midrule
+  0.94 & 36.3 & & & & \\
+  15.0 & 106.5 & & & & \\
+  62.0 & 185.0 & & & & \\
+  \bottomrule
+  \end{tabular}}
+  \smallskip
+  \item Is the strong-shock assumption justified throughout Table~\ref{tab:data}? Now look at your $T_2$ values. Why is it surprising that a single constant $\gamma$ works?
+  \item Take the mass of the device to be about 5 tonnes. At what radius does the mass of swept-up air equal this value? Use your answer to explain the earliest point in Table~\ref{tab:data}.
+\end{enumerate}
+
+\task{Task 4\quad How large is the error?}{5 min}
+\begin{enumerate}[label=(\alph*)]
+  \item Show that the maximum relative error in $E$ is $\dfrac{\delta E}{E}=5\dfrac{\delta R}{R}+2\dfrac{\delta t}{t}$. Evaluate it for a 2\% error in $R$ and a 1\% error in $t$.
+  \item Which matters more here, the measurement error in (a) or the choice between $K=0.856$ ($\gamma=1.4$) and $K=1.167$ ($\gamma=1.3$)? Justify your answer with numbers.
+\end{enumerate}
+
+\module{Code Lab}{代码实验}{课内 · 15 min}
+
+这是第一个 Code Lab，此时还没有学 Python（C0 在下下次课），所以代码已经写好，只需运行、修改参数并解释结果。文件在 \texttt{code/P1\_code\_lab.py}。
+
+\lstinputlisting[language=Python,basicstyle=\ttfamily\footnotesize]{code/P1_code_lab.py}
+
+\begin{enumerate}[label=\textbf{\arabic*.}]
+  \item Run the program and record the slope and the energy. Look at the plot: do the two lines differ much?
+  \item Set \texttt{t\_min} to \texttt{0.0}, \texttt{0.5} and \texttt{10.0} in turn. Record the slope and the energy each time. Which data points have the greatest influence?
+  \item Set \texttt{K = 1.167}. What is the energy now?
+  \item The program calculates $E$ only after fixing the slope at $2/5$. Explain in English why the free-fit line cannot be used in Eq.~(2).
+\end{enumerate}
+
+\module{Competition Corner}{竞赛角}{课后}
+
+\task{Problem 1\quad A thin-shell model of a blast wave (12 points)}{}
+Taylor had to integrate the equations numerically to find $K$. In this problem you will find a good approximation by hand. A strong spherical shock of radius $R(t)$ and speed $U=\dot R$ moves into a still perfect gas of density $\rho$ and negligible pressure. Behind the front, the gas has density $\rho_2$, pressure $p_2$ and velocity $u$ in the laboratory frame.
+\begin{enumerate}[label=\textbf{\Alph*.}]
+  \item (3 points) Work in the frame of the shock. Write down the conservation of mass, momentum and energy across the front, using the specific enthalpy $h=\dfrac{\gamma p}{(\gamma-1)\rho}$. Hence show that
+  \[\frac{\rho_2}{\rho}=\frac{\gamma+1}{\gamma-1},\qquad p_2=\frac{2}{\gamma+1}\rho U^2,\qquad u=\frac{2U}{\gamma+1}.\]
+  \item (1 point) Show that, just behind the front, the kinetic energy per unit mass equals the internal energy per unit mass.
+  \item (3 points) Figure~\ref{fig:blast}b suggests a simple model. All the swept-up mass $M=\frac43\pi R^3\rho$ moves with speed $u$ in a thin shell at radius $R$, and the interior has uniform pressure $p_c$. Given that $R\propto t^{2/5}$, apply Newton's second law to a small sector of the shell and show that $p_c=\frac12p_2$.
+  \item (3 points) Take the energy to be the kinetic energy of the shell plus the internal energy of the interior. Show that $E=K_{\text{model}}\,\rho R^5/t^2$ with
+  \[K_{\text{model}}=\frac{16\pi}{75}\left[\frac{2}{(\gamma+1)^2}+\frac{1}{(\gamma+1)(\gamma-1)}\right].\]
+  Evaluate $K_{\text{model}}$ for $\gamma=1.4$ and compare it with the exact value $0.851$.
+  \item (2 points) What fraction of the energy is kinetic in this model? The exact value is 22\%. By what percentage does the model's error in $K$ change the predicted radius $R$ at a given time?
+\end{enumerate}
+
+\task{Problem 2\quad A blast wave in the Galaxy (8 points)}{}
+A supernova releases $E=1.0\times10^{44}\unit{J}$ into interstellar gas of density $\rho=1.67\times10^{-21}\unit{kg\,m^{-3}}$ (about one hydrogen atom per cubic centimetre). The gas has $\gamma=5/3$, for which $S=1.15$. Use $1\unit{pc}=3.09\times10^{16}\unit{m}$, $1\unit{yr}=3.16\times10^{7}\unit{s}$, $M_\odot=1.99\times10^{30}\unit{kg}$, $m_p=1.67\times10^{-27}\unit{kg}$ and $k_B=1.38\times10^{-23}\unit{J\,K^{-1}}$.
+\begin{enumerate}[label=\textbf{\Alph*.}]
+  \item (3 points) The ejected mass is $1.4M_\odot$. If all the energy is initially kinetic, find the ejecta speed. At what radius, and after how many years, has the ejecta swept up its own mass of interstellar gas? Why is Eq.~(1) not valid before this?
+  \item (2 points) Find $R$ in parsecs and $U$ in km/s, 1000 years after the explosion.
+  \item (3 points) Show that the temperature just behind the shock is $T_2=\dfrac{3\mu m_pU^2}{16k_B}$, where $\mu$ is the mean particle mass in units of $m_p$. Evaluate $T_2$ for $\mu=0.6$. In which part of the electromagnetic spectrum should such gas glow?
+\end{enumerate}
+
+\module{Output}{学术产出}{A：课内 15 min \quad B：课后}
+
+\sub{A. Speak: a two-minute explanation}
+Without reading from notes, explain to an imaginary examiner how Taylor could estimate the energy of an explosion from photographs. Cover the assumptions, the scaling law, the data and one limitation. These phrases may help:
+
+\begin{tipbox}\small
+\textit{The key question is \dots \quad If we assume that \dots, then only three quantities matter. \quad It follows that \dots \quad On a log--log plot, this appears as \dots \quad However, this argument cannot tell us \dots \quad The main limitation is that \dots}
+\end{tipbox}
+
+\sub{B. Write: your first abstract (120--150 words)}
+Write an abstract for a short report on your own work in Task 2, Task 3 and the Code Lab. An abstract usually makes four moves. Do not copy sentences from the Main Text.
+
+\begin{center}
+\small
+\begin{tabular}{p{2.6cm}p{5.0cm}p{7.5cm}}
+\toprule
+\headrow Move & 作用 & Useful language \\
+\midrule
+Background & 为什么值得研究 & The energy of \dots can be inferred from \dots \\
+Method & 做了什么 & We fit \dots to \dots; We test whether \dots \\
+Result & 得到的数值 & We find a slope of \dots; This gives \dots \\
+Implication & 结果的意义和局限 & This agrees to within \dots; The model fails when \dots \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+% ---------------- Answers ----------------
+\clearpage
+\module{Answers}{参考答案}{}
+
+\sub{Warm-up}
+\begin{enumerate}[label=\textbf{\arabic*.}]
+  \item $16\,000/340\approx47\unit{s}$. Fermi reported about 40 s. A strong blast travels faster than sound, particularly in its early stage, so the estimate is a little too long.\\
+  \note{Fermi 还丢下纸片，由纸片约 2.5 m 的位移估算出约 10 kt。他如何由位移得到这个数字，至今没有完整的解释（Katz, \textit{Fermi at Trinity}, 2021）。}
+  \item $17\unit{kt}=7.1\times10^{13}\unit{J}=2.0\times10^{7}\unit{kWh}$. The city uses $2\times10^{11}/8760=2.3\times10^{7}\unit{kWh}$ per hour, so the energy lasts about 50 minutes.
+  \item Open discussion. The energy, air density, time and radius matter. The air temperature, the ambient pressure and the details of the device might be ignored, but this needs justification.
+\end{enumerate}
+
+\sub{Word Work}
+1. negligible \quad 2. break down \quad 3. Substituting \quad 4. unity \quad 5. exceeds \quad 6. sensitive \quad 7. yields \quad 8.~dispense~with
+
+\sub{Reading Check}
+\begin{enumerate}[label=\textbf{\arabic*.}]
+  \item False (¶2). The theory dates from 1941, four years before the test.
+  \item False (¶6). It gives the exponent, but $S$ requires integrating the flow equations.
+  \item False (¶8). It counts only the energy not radiated away beyond the fireball.
+  \item False (¶9). It falls below the line, because the device and radiation still matter at that stage.
+  \item The point-source assumption removes the mass and size of the device. The strong-shock assumption removes the ambient pressure.
+  \item A scientist looks for measurable quantities in a picture, not just its visual impact. Here the time stamp and scale turn it into a measurement.
+  \item They suggest that dimensional analysis was the whole of his method, when in fact he also solved the equations of flow to obtain the constant.
+  \item The law survives even though one of its assumptions, a constant $\gamma$, is certainly untrue at such high temperatures.
+  \item (a) ¶9; (b) ¶3; (c) ¶8; (d) ¶10.\\
+  \note{¶7 把理论与照片数据比较，但照片本身就是用来定出 $E$ 的，不算独立检验。(c) 的独立测量是 ¶8 的放射化学结果。}
+  \item Any two of these: (i) The explosion is spherically symmetric, although the fireball soon reached the ground. Taylor noted that the upper part still expanded as a nearly perfect hemisphere. (ii) The luminous edge marks the shock front. At late times the shock moves ahead of the luminous region. (iii) The air density is uniform and equal to its value at ground level.
+\end{enumerate}
+
+\sub{Language Focus}
+\textbf{A.}
+(1) $R$ is proportional to $t$ to the power of two-fifths. \
+(2) $E$ equals $K$ rho $R$ to the fifth over $t$ squared. \
+(3) $p$ two is much greater than $p$ nought. \
+(4) Delta $E$ over $E$ is approximately five delta $R$ over $R$. \
+(5) $E$ is of the order of ten to the fourteen joules.
+
+\textbf{B.}
+\begin{enumerate}[label=\textbf{\arabic*.}]
+  \item proportional \textbf{to} $t^{2/5}$.
+  \item The relation is reversed: \textbf{The ambient pressure} is negligible compared with \textbf{the pressure behind the front}.
+  \item is \textbf{of} the order of $10^{14}$ J.
+  \item makes the energy \textbf{32 times} larger ($2^5=32$).
+  \item thirty orders \textbf{of magnitude} more energy.
+\end{enumerate}
+
+\textbf{C.}（参考译文）
+\begin{enumerate}[label=\textbf{\arabic*.}]
+  \item The radius of the blast wave grows as the two-fifths power of time.
+  \item The pressure behind the shock is about 80 times the ambient pressure, so the latter is negligible.
+  \item This estimate agrees with the modern value to within about 30\%.
+  \item A 2\% error in the radius leads to a 10\% error in the energy.
+\end{enumerate}
+
+\sub{Work It Out}
+\textbf{Task 1.}
+(a) Matching M, L and T gives $a+b=0$, $2a-3b=1$ and $-2a+c=0$, so $a=\frac15$, $b=-\frac15$, $c=\frac25$.
+
+(b) $\Pi=\dfrac{p_0\,t^{6/5}}{E^{2/5}\rho^{3/5}}$. There are now five quantities ($R,E,\rho,t,p_0$) and three dimensions, so there are two independent dimensionless groups. One can only say that the first is a function of the second. In the strong-shock limit $\Pi\to0$, and $f(0)=S$.
+
+(c) $t^*=E^{1/3}\rho^{1/2}p_0^{-5/6}\approx3.1\unit{s}$ and $R^*=(E/p_0)^{1/3}\approx890\unit{m}$. $R^*$ is the radius at which the energy per unit volume, $\sim E/R^3$, falls to the ambient pressure.\\
+\note{此时前沿速度 $2R^*/5t^*\approx115\unit{m/s}$，已低于声速，说明强激波近似在此之前就已失效。按式 (1) 估算，$M=3$ 约在 $t\approx0.085\unit{s}$、$R\approx220\unit{m}$，$M=2$ 约在 $t\approx0.17\unit{s}$、$R\approx285\unit{m}$，所以数据（到 185 m）恰好在失效之前结束。}
+
+\textbf{Task 2.}
+(a) $Q=1.69\times10^{13}$, $7.13\times10^{13}$, $6.09\times10^{13}$, $5.64\times10^{13}\unit{m^5\,s^{-2}}$. The first value is about a quarter of the others, so the earliest point lies outside the regime of the law. The value at late times drifts slightly downward, an early sign that the shock is weakening.
+
+(b) slope $=\dfrac{\log_{10}(185/19.9)}{\log_{10}(62.0/0.24)}=\dfrac{0.968}{2.412}=0.401$, very close to $0.4$.
+
+(c) $E=0.856\times1.25\times6.67\times10^{13}=7.14\times10^{13}\unit{J}\approx17\unit{kt}$.\\
+\note{Taylor 写作 16,800 吨，差别来自他用的换算值 $1\unit{t}=4.25\times10^{16}\unit{erg}$，现代定义是 $4.184\times10^{16}\unit{erg}$。}
+
+(d) $R^5/t^2=10^{2\times11.915}=6.76\times10^{23}\unit{cm^5\,s^{-2}}=6.76\times10^{13}\unit{m^5\,s^{-2}}$. This differs from the printed $6.67\times10^{13}$ by about 1.3\%. The difference is far smaller than the other uncertainties, but a careful reader should notice it.\\
+\note{原文的式 (1) 和式 (2) 确实有这一差异，后续的能量用的是 6.67。这里不必判断是哪一个错了，重点是养成核对的习惯。}
+
+\textbf{Task 3.}
+(a) $R=At^{2/5}$ gives $U=\dot R=\frac25At^{-3/5}=\dfrac{2R}{5t}$.
+
+(b)\quad{\small
+\begin{tabular}[t]{cccccc}
+\toprule
+\headrow $t$ (ms) & $R$ (m) & $U$ (m/s) & $U/c$ & $p_2/p_0$ & $T_2$ (K) \\
+\midrule
+0.94 & 36.3 & $1.54\times10^4$ & 45 & 2450 & $1.2\times10^5$ \\
+15.0 & 106.5 & $2.84\times10^3$ & 8.4 & 83 & $3.9\times10^3$ \\
+62.0 & 185.0 & $1.19\times10^3$ & 3.5 & 15 & $6.9\times10^2$ \\
+\bottomrule
+\end{tabular}}
+
+(c) Yes: even at the last point $p_2/p_0\approx15$, although the approximation is getting weaker there. The temperatures range over more than two orders of magnitude. Air molecules would be vibrationally excited, dissociated and ionised at various stages, so $\gamma$ cannot truly be constant. Taylor himself called this assumption ``certainly not true''.\\
+\note{表中早期的 $T_2$ 是理想气体公式的结果，只表示量级。实际空气在如此高温下会电离并强烈辐射。}
+
+(d) $\frac43\pi R^3\rho=5000\unit{kg}$ gives $R\approx10\unit{m}$. The earliest point, $R=11.1\unit{m}$, is at about this radius, so the point-source assumption does not yet hold and the point should not be expected to lie on the line. Taylor's line begins at $R=20\unit{m}$.
+
+\textbf{Task 4.}
+(a) $\ln E=\ln(K\rho)+5\ln R-2\ln t$. Differentiating and adding the magnitudes gives the result. $\delta E/E=5(2\%)+2(1\%)=12\%$.
+
+(b) $1.167/0.856=1.36$, a 36\% change, which is about three times the measurement error. The largest uncertainty therefore lies in the physics of hot air, not in the ruler or the clock.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[xscale=3.3,font=\footnotesize]
+  \draw[-{Stealth}] (0.8,0) -- (3.3,0) node[right]{$R$ (m)};
+  \foreach \v/\l in {1/10,2/100,3/1000}{\draw (\v,0.08) -- (\v,-0.08) node[below]{\l};}
+  \fill[lodrust!30] ({log10(20)},0.08) rectangle ({log10(185)},0.34);
+  \node[lodrust,anchor=south] at ({(log10(20)+log10(185))/2},0.36) {Taylor's data: 20--185 m};
+  \draw[lodnavy,thick] ({log10(10)},0) -- ({log10(10)},1.0) node[above,align=center]{swept mass\\ = device mass};
+  \draw[lodnavy,thick] ({log10(285)},0) -- ({log10(285)},1.0) node[above,align=center]{$M\approx2$};
+  \draw[lodnavy,thick] ({log10(890)},0) -- ({log10(890)},1.0) node[above,align=center]{$E/R^3\sim p_0$};
+\end{tikzpicture}
+\caption{The window in which Eq.~(1) applies, on a logarithmic scale of radius.}
+\end{figure}
+
+\sub{Code Lab}
+\begin{center}\small
+\begin{tabular}{ccccc}
+\toprule
+\headrow \texttt{t\_min} (ms) & Points used & Free-fit slope & $Q$ ($\mathrm{m^5\,s^{-2}}$) & $E$ (kt) \\
+\midrule
+0.0 & 25 & 0.406 & $6.42\times10^{13}$ & 16.4 \\
+0.2 & 24 & 0.390 & $6.79\times10^{13}$ & 17.4 \\
+0.5 & 22 & 0.386 & $6.84\times10^{13}$ & 17.5 \\
+10.0 & 5 & 0.391 & $5.81\times10^{13}$ & 14.9 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\begin{enumerate}[label=\textbf{\arabic*.}]
+  \item Slope 0.390 and $E=17.4$ kt. Both lines pass close to the data, and they separate visibly only at the ends.
+  \item The single earliest point visibly shifts the slope, because it lies far to the left and below the line. The late-time points alone give a lower energy, because $Q$ falls as the shock weakens.
+  \item $E=23.7$ kt with the same data.
+  \item Eq.~(2) requires $R^5/t^2$ to be constant, which is true only if the slope is exactly $2/5$. On the free-fit line this quantity varies with time, so no single value of $E$ can be read from it.
+\end{enumerate}
+
+\sub{Competition Corner}
+\textbf{Problem 1.}
+
+A. In the shock frame, gas enters at speed $U$ and leaves at speed $w=U-u$. With negligible upstream pressure,
+\[\rho U=\rho_2w,\qquad \rho U^2=p_2+\rho_2w^2,\qquad \tfrac12U^2=\frac{\gamma p_2}{(\gamma-1)\rho_2}+\tfrac12w^2.\]
+Let $n=\rho_2/\rho$, so $w=U/n$. Momentum gives $p_2=\rho U^2(1-1/n)$. Energy then gives $\frac12(1-1/n^2)=\frac{\gamma}{\gamma-1}\frac1n(1-1/n)$, which reduces to $\frac{n+1}{2}=\frac{\gamma}{\gamma-1}$. So $n=\frac{\gamma+1}{\gamma-1}$, and the expressions for $p_2$ and $u=U(1-1/n)$ follow.
+
+B. $e=\dfrac{p_2}{(\gamma-1)\rho_2}=\dfrac{2U^2}{(\gamma+1)^2}=\dfrac12u^2$.
+
+C. $R\propto t^{2/5}$ means $U\propto R^{-3/2}$, so $Mu\propto R^3\cdot R^{-3/2}=R^{3/2}$. Then
+\[\frac{d(Mu)}{dt}=\frac32\frac{Mu}{R}U=4\pi R^2\frac{\rho U^2}{\gamma+1}.\]
+Setting this equal to the force $4\pi R^2p_c$ gives $p_c=\dfrac{\rho U^2}{\gamma+1}=\dfrac12p_2$.\\
+\note{精确解中心压强约为 $0.37\,p_2$，壳层附近压强更高，所以取平均值 $\tfrac12p_2$ 是合理的。}
+
+D. With $V=\frac43\pi R^3$: $\frac12Mu^2=\dfrac{2\rho VU^2}{(\gamma+1)^2}$ and $\dfrac{p_cV}{\gamma-1}=\dfrac{\rho VU^2}{(\gamma+1)(\gamma-1)}$. Substituting $U^2=\frac{4}{25}R^2/t^2$ gives the stated formula. For $\gamma=1.4$, $K_{\text{model}}=0.670\times(0.347+1.042)=0.931$, which is about 9\% above the exact value.
+
+E. Kinetic fraction $=0.347/1.389=25\%$. Since $R\propto K^{-1/5}$, a 9\% error in $K$ changes $R$ by only about 2\%. ($S_{\text{model}}=1.014$, against the exact $1.033$.)
+
+\textbf{Problem 2.}
+
+A. $v=\sqrt{2E/M}=8.5\times10^3\unit{km/s}$. Setting $\frac43\pi R^3\rho=1.4M_\odot$ gives $R=7.4\times10^{16}\unit{m}=2.4\unit{pc}$, and $t=R/v\approx2.8\times10^2\unit{yr}$. Before this, the ejecta dominates and expands almost freely, so the point-source assumption fails.
+
+B. $R=1.15\,(Et^2/\rho)^{1/5}=1.6\times10^{17}\unit{m}=5.3\unit{pc}$ and $U=2R/5t=2.1\times10^3\unit{km/s}$.
+
+C. For $\gamma=\frac53$: $\rho_2=4\rho$ and $p_2=\frac34\rho U^2$, so $\dfrac{k_BT_2}{\mu m_p}=\dfrac{p_2}{\rho_2}=\dfrac{3U^2}{16}$. Hence $T_2\approx5.9\times10^7\unit{K}$, or $k_BT_2\approx5\unit{keV}$. Such gas glows in X-rays, which is how remnants of this kind are observed.
+
+\sub{Output B: a model abstract}
+\begin{tipbox}\small
+The energy of an intense explosion can be inferred from the growth of its fireball, provided that the blast wave is strong and the source is effectively a point. We test this idea using the radius--time measurements of the 1945 Trinity explosion published by Taylor (1950), excluding the earliest point. A least-squares fit to the log--log data gives a slope of 0.39, close to the predicted value of 2/5. Fixing the slope at 2/5 yields an energy of about 17 kilotons of TNT. We find that the shock remains strong throughout most of the data, with a Mach number that falls from about 100 to 3.5. The largest uncertainty lies in the effective value of $\gamma$, which changes the result by about 36\%. Our estimate agrees with the modern yield to within about 30\%.
+\end{tipbox}
+\note{字数约 130。注意四个步骤：背景（第 1 句）、方法（第 2 句）、结果（第 3–5 句）、意义与局限（第 6–7 句）。}
+
+\end{document}
