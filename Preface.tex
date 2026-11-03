@@ -1,0 +1,93 @@
+% Preface. Compile from science-english/ with:  xelatex Preface.tex  (twice)
+\documentclass[11pt,a4paper]{article}
+\usepackage{common/lod}
+\hypersetup{pdftitle={The Language of Discovery - Preface},pdfauthor={}}
+
+\begin{document}
+
+\maintextlayout
+\setcounter{lodpara}{0}
+
+\fronttitle{Preface}{Preface}{To the Reader}{致读者}
+
+\pn You already know a great deal of physics. Give you a problem you have never seen, and you can find the \gl{hidden}{隐藏的}hidden symmetry, choose the right approximation and reach the answer before the time runs out. This book will not teach you to do that. It starts from a different question: what happens when nobody has written the problem yet?
+
+\pn When photographs of the first atomic explosion were released, nobody handed G. I. Taylor a problem sheet. He had to decide for himself which quantities mattered, which could be ignored, and how far his answer could be trusted. Then he had to write it all down so that strangers could check it. Competitions train one part of this work, and they train it well. The rest is judgment and \gl{communication}{交流、表达}communication, and today most of that communication happens in English.
+
+\pn That is why this book is called \textit{The Language of Discovery}. By language I mean more than vocabulary. I mean the way a good paper separates what it has shown from what it has \gl{merely}{仅仅}merely assumed, the difference between \textit{we find} and \textit{we suggest}, and the ability to read an equation aloud and explain why it deserves belief. These are tools of thought. You cannot examine an assumption that you are unable to state.
+
+\pn Each unit is built on a classic paper, a piece of real research or a good problem. The articles have been rewritten for you, but the mathematics has not been \gl{watered down}{（把内容）削弱、简化}watered down. Only the English starts gently: the first articles run to about 800 words, and the last include short passages from the original papers. Every article ends with a pencil in your hand. You will repeat the derivation and test the result against the data. Some units ask you to write code; no experience is required.
+
+\pn The book has four parts: physics, mathematics, informatics and artificial intelligence. They are less separate than a table of contents suggests; watch for the connections. The random motion of a grain in water (Unit P4) \gl{reappears}{再次出现}reappears in the diffusion models that generate images (A5). Cantor's diagonal argument (M2) returns in Turing's proof that some problems cannot be solved by any program (C2).
+
+\pn Please read this book \gl{sceptically}{持怀疑态度地}sceptically. Science is often retold more neatly than it happened. Popular accounts say that Taylor found the energy of the explosion by dimensional analysis alone; he did not, as you will see in Unit P1. You will also find a small numerical \gl{inconsistency}{不一致之处}inconsistency in his paper, a classic of scientific estimation. Great papers can be questioned, and so can this book. I have tried to check every number and run every program, but if you find an error, tell me. Nothing would please me more.
+
+\enlargethispage{\baselineskip}
+\pn Expect the work to feel slow at first. Explaining a derivation aloud may feel clumsy even when you understand every step. This is normal: your physics is ahead of your English, and the gap will close. By the end you will write a short paper, give a ten-minute talk and \gl{referee}{评审（论文）}referee part of a real paper. Some day others may be reading yours.
+
+\vspace{2pt}
+{\raggedleft The Author, November 2026\par}
+
+\clearpage
+\normallayout
+
+\module{How to Use This Book}{如何使用本书}{}
+
+\sub{全书结构}
+全书 28 课次，每周一次，约需一学年，可根据竞赛和考试安排留出机动周。全书由导论 U0、物理 P1–P8、数学 M1–M6、信息学 C0–C5、AI A1–A5 和 2 课次的结业项目组成。讲义按板块编排，上课则按难度穿插，并保证前置单元先学，所以单元的编号不等于上课的顺序。
+
+\sub{上课顺序}
+\begin{center}
+\small
+\begin{tabular}{p{1.2cm}p{1.2cm}p{7.4cm}p{2.2cm}p{2.2cm}}
+\toprule
+\headrow 阶段 & 课次 & 单元 & 阅读目标 & 产出目标 \\
+\midrule
+入门 & 1–7 & U0 → P1 → M1 → C0 → C1 → P2 → M2 & 读懂结构和公式 & 口头读式、一段话总结 \\
+\midrule
+进阶 & 8–20 & P3 → M3 → C2 → P4 → M4 → C4 → P5 → M5 → C3 → A1 → P6 → A2 → A3 & 跟上完整推导 & 写摘要和方法段 \\
+\midrule
+研究 & 21–28 & M6 → P7 → C5 → A4 → P8 → A5 → 结业项目（2 课次） & 读真实论文片段 & 写评审意见、小论文和报告 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\sub{一个单元怎么学}
+文章不因课时缩短，推演尽量在课内完成，所以通读放在课前。
+
+\begin{center}
+\small
+\begin{tabular}{p{1.2cm}p{6.0cm}p{1.5cm}p{5.9cm}}
+\toprule
+\headrow 阶段 & 内容 & 时间 & 要求 \\
+\midrule
+课前 & Main Text 通读，Vocabulary 预习 & 40 min & 带着 Reading Check 的问题读，遇到公式先读出声 \\
+\midrule
+\multirow{5}{*}{课内} & Warm-up 与预习检查 & 10 min & 一道估算或一个问题，引出主题 \\
+ & 精读难点段落 & 25 min & 说清论证结构，不逐句翻译 \\
+ & Language Focus & 10 min & 一个学术语言点，配句型练习 \\
+ & Work It Out 与 Code Lab & 60 min & 用英文写关键步骤 \\
+ & 口头产出 & 15 min & 用英文讲解刚完成的推导 \\
+\midrule
+课后 & Competition Corner，书面 Output，词汇复习 & 约 1 h & 书面完成 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\sub{读懂版面}
+\begin{itemize}
+  \item \textbf{段落编号}：正文左侧的数字是段落号，讲义和课堂上用 ¶6 这样的写法指代。
+  \item \textbf{旁注}：正文右侧是难词释义。先试着根据上下文猜，再看旁注。
+  \item \textbf{难度}：★ 约 800 词，★★ 约 1000–1200 词，★★★ 约 1200–1500 词。星级只表示语言难度，不代表数理难度。
+  \item \textbf{词汇}：每单元约 50 个词条，分三层，并在后续单元循环出现，全书累计约 1200 个。
+  \item \textbf{答案}：放在每单元末尾，另起一页。请先独立做完再核对。
+\end{itemize}
+
+\sub{三条建议}
+\begin{itemize}
+  \item \textbf{预习时不必查清每个词。}第一遍的目标是看清论证的走向，查词放到第二遍。
+  \item \textbf{把推导写成句子。}不要只列公式，用 \textit{Since}, \textit{It follows that}, \textit{Neglecting} 把各步连起来。
+  \item \textbf{每次算完都问一句：这个数合理吗？}先看量级和单位，再和文中的数据对比。对不上时先查自己，也要想到原文可能有问题。
+\end{itemize}
+
+\end{document}

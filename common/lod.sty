@@ -68,6 +68,17 @@
   {\small\color{lodgray}#4\par}
   \vspace{4pt}{\color{lodnavy}\rule{\linewidth}{1.2pt}}\par\vspace{4pt}}
 
+% Front-matter and part-opener title block: \fronttitle{页眉}{小标题}{English title}{中文标题}
+\newcommand{\fronttitle}[4]{%
+  \renewcommand{\lodunit}{#1}%
+  \thispagestyle{plain}%
+  {\sffamily\small\color{lodrust}\textbf{The Language of Discovery}\quad·\quad #2\par}
+  \vspace{4pt}
+  {\sffamily\fontsize{22}{27}\selectfont\bfseries\color{lodnavy}#3\par}
+  \vspace{3pt}
+  {\large\color{lodnavy}#4\par}
+  \vspace{4pt}{\color{lodnavy}\rule{\linewidth}{1.2pt}}\par\vspace{4pt}}
+
 % Module heading: \module{English}{中文}{时间}
 \newcommand{\module}[3]{%
   \par\addvspace{12pt}\Needspace{7\baselineskip}%

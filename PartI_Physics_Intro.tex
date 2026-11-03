@@ -1,0 +1,126 @@
+% Part I opener. Compile from science-english/ with:  xelatex PartI_Physics_Intro.tex  (twice)
+\documentclass[11pt,a4paper]{article}
+\usepackage{common/lod}
+\hypersetup{pdftitle={The Language of Discovery - Part I Physics},pdfauthor={}}
+
+\begin{document}
+
+\maintextlayout
+\setcounter{lodpara}{0}
+
+\fronttitle{Part I Physics}{Part I\quad·\quad Physics}{How Do We Know?}{第一部分\quad 物理：我们如何知道？}
+
+\pn Nobody can look at an atomic nucleus, count the molecules in a drop of water or watch space stretch by less than a hundredth of the width of a proton. Yet physicists have measured all of these things, often with surprisingly \gl{modest}{不起眼的、简朴的}modest equipment: a camera, a stone slab floating on mercury, a microscope, a \gl{gamma-ray}{伽马射线}gamma-ray source and a 22.5-metre drop inside a university building.
+
+\pn This Part is organized around one question: \textit{how do we know?} Each unit follows a \gl{chain of inference}{推断链}chain of inference from something that can be counted to something that cannot. Taylor read radii from frames of film and obtained an energy. Geiger and Marsden counted faint flashes on a screen and found that about one alpha particle in 8,000 came back from a metal \gl{foil}{金属箔}foil; in 1911 Rutherford explained this by placing nearly all the mass of the atom in a tiny central region. Perrin followed grains under a microscope and arrived at the number of molecules in a \gl{mole}{摩尔}mole. In every case the observation stands at one end of the chain and the claim at the other. Between them lies a model, with assumptions that may fail. Your task as a reader is to find each link and test it.
+
+\pn Some of the most valuable results are those in which almost nothing happens. In 1887 Michelson and Morley expected their \gl{interference fringes}{干涉条纹}interference fringes to shift by about 0.4 of a fringe, and they saw at most about one-twentieth of that. A careful writer does not report such a result as ``no effect''. It is a number with a limit attached: the effect, if it exists, is smaller than this. You will learn to state such a limit and to judge how much weight it can \gl{bear}{承受}bear.
+
+\pn This Part also traces a growth in precision. The wavelength shift that Compton measured is a few picometres. Pound and Rebka detected a \gl{fractional}{相对的、比例的}fractional frequency shift of about $2.5\times10^{-15}$, and an effect of the same kind must be corrected in every GPS satellite. In 2015 the LIGO detectors recorded a signal with a peak \gl{strain}{应变}strain of about $10^{-21}$ that lasted only a fraction of a second. Figure~\ref{fig:ruler} places all eight units on a single scale.
+
+\pn Unit P7 is the odd one out, and it is included for a reason. Purcell reports no \gl{landmark}{里程碑式的}landmark measurement. He asks instead what life is like for a bacterium, for which \gl{viscosity}{黏度}viscosity is everything and \gl{inertia}{惯性}inertia almost nothing. Stop swimming and you stop almost at once; run a motion backwards and you undo it exactly. Our everyday intuition fails in that world, but the equations do not. The lesson is the one that Taylor's argument teaches in P1: before you solve anything, ask which terms matter.
+
+\pn You may already have derived the Rutherford formula or the Compton shift in competition training. Good: you will not lose time there. But a competition problem hands you the model, whereas a paper makes you ask where the model came from, which data support it and what would count against it. The physics may be familiar. The new work is to reason in this way in English, in writing and aloud. The language climbs with the science, from describing scale in P1 to the careful \gl{hedging}{（学术写作中的）审慎措辞}hedging of a real abstract in P8, taken from a paper with more than a thousand authors.
+
+\clearpage
+\normallayout
+
+\begin{tipbox}
+\textbf{Three questions to ask of every paper in this Part}
+\begin{enumerate}[label=\arabic*.]
+  \item What was actually observed, and what was inferred from it?
+  \item What does the argument assume, and where might those assumptions fail?
+  \item What result would have shown the authors to be wrong?
+\end{enumerate}
+\end{tipbox}
+
+\module{Map of Part I}{本部分地图}{}
+
+\begin{center}
+\small
+\begin{tabular}{p{1.4cm}>{\raggedright\arraybackslash}p{3.2cm}p{3.9cm}>{\raggedright\arraybackslash}p{3.4cm}>{\raggedright\arraybackslash}p{2.2cm}}
+\toprule
+\headrow 单元 & 文章来源 & 核心问题 & 关键的量 & 语言重点 \\
+\midrule
+P1 ★\newline 第 2 课 & Taylor，爆炸波（1950） & 一组照片能称出爆炸的能量吗？ & $R\propto t^{2/5}$；约 17 kt & 量级与标度 \\
+\midrule
+P2 ★\newline 第 6 课 & Michelson–Morley（1887） & 地球相对以太运动得多快？ & 预期移动约 0.4 条纹 & 实验描述、被动语态 \\
+\midrule
+P3 ★★\newline 第 8 课 & Rutherford，散射（1911） & 原子内部是什么样子？ & 最近距离约 $3\times10^{-14}\unit{m}$ & 假设与推论 \\
+\midrule
+P4 ★★\newline 第 11 课 & Einstein（1905）与 Perrin（1909） & 分子真的存在吗？有多少？ & $\langle x^2\rangle\propto t$；$N_\mathrm{A}$ & 长难句、名词化 \\
+\midrule
+P5 ★★\newline 第 14 课 & Compton 效应（1923） & 光子带有动量吗？ & $h/m_\mathrm{e}c=2.43\unit{pm}$ & 理论与实验对比 \\
+\midrule
+P6 ★★\newline 第 18 课 & Pound–Rebka（1960）与 GPS & 引力会改变时钟的快慢吗？ & $gh/c^2\approx2.5\times10^{-15}$；约 $38\,\mupmu\mathrm{s/d}$ & 精度与不确定度 \\
+\midrule
+P7 ★★★\newline 第 22 课 & Purcell（1977） & 细菌要怎样才能游动？ & $\mathit{Re}\sim10^{-4}$ & 科学散文、类比 \\
+\midrule
+P8 ★★★\newline 第 25 课 & LIGO GW150914（2016） & 那个信号真的来自黑洞吗？ & 应变约 $10^{-21}$ & 摘要结构、审慎措辞 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[font=\footnotesize,x=0.72cm,y=1cm]
+  \def\lab#1#2#3#4{% x position, label height, unit, text
+    \draw[lodgray!70] (#1,0) -- (#1,#2);
+    \fill[lodrust] (#1,0) circle (1.6pt);
+    \node[anchor=south,align=center,inner sep=2pt] at (#1,#2) {\textbf{\color{lodnavy}#3}\\#4};}
+  \draw[lodnavy,thick,-{Stealth}] (-18.6,0) -- (3.5,0);
+  \foreach \e in {-18,-15,...,3}{
+    \draw[lodnavy] (\e,0) -- (\e,-0.1);
+    \node[anchor=north,lodgray] at (\e,-0.12) {$10^{\e}$};}
+  \foreach \e in {-18,...,3}{\draw[lodnavy!60] (\e,0) -- (\e,-0.05);}
+  \node[anchor=north east,lodgray] at (3.5,-0.5) {length / m (logarithmic scale)};
+  \lab{-17.4}{0.35}{P8}{arm-length\\change}
+  \lab{-13.5}{0.35}{P3}{closest\\approach}
+  \lab{-11.6}{1.15}{P5}{Compton\\wavelength}
+  \lab{-6.2}{0.35}{P2}{wavelength\\of light}
+  \draw[lodgray!70] (-6,0) -- (-3.9,0.35);
+  \fill[lodrust] (-6,0) circle (1.6pt);
+  \node[anchor=south,align=center,inner sep=2pt] at (-3.9,0.35) {\textbf{\color{lodnavy}P7}\\bacterium};
+  \draw[lodgray!70] (-6.1,0) -- (-8.4,0.35);
+  \fill[lodrust] (-6.1,0) circle (1.6pt);
+  \node[anchor=south,align=center,inner sep=2pt] at (-8.4,0.35) {\textbf{\color{lodnavy}P4}\\suspended\\grain};
+  \lab{1.35}{1.45}{P6}{tower\\height}
+  \lab{2}{0.35}{P1}{blast\\radius}
+\end{tikzpicture}
+\caption{A characteristic length from each unit, spanning about twenty orders of magnitude. Values are rounded; the positions are only a guide.}
+\label{fig:ruler}
+\end{figure}
+
+\clearpage
+\module{Words of Inference}{推断的语言}{}
+这些动词在论文里不能互换。它们说明作者手里的证据有多强，贯穿本部分的所有单元。
+
+\begin{center}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{2.3cm}p{8.0cm}p{4.7cm}}
+\toprule
+\headrow 表达 & 例句 & 用法 \\
+\midrule
+observe & Geiger and Marsden observed that about one alpha particle in 8,000 was reflected. & 直接看到或测到的结果 \\
+infer & Rutherford inferred that the mass of the atom is concentrated in a tiny region. & 由观测推出，中间要靠模型 \\
+predict & The scaling argument predicts that $R$ grows as $t^{2/5}$. & 在测量之前由理论给出 \\
+confirm & Perrin's measurements confirmed Einstein's predictions. & 证据支持，但不等于 prove \\
+rule out & The data ruled out a drift as large as the Earth's orbital speed. & 排除某种可能，通常很有力 \\
+set an upper limit on & Michelson and Morley set an upper limit on the ether drift. & 零结果的规范说法 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\module{Before You Begin}{动手估算}{自选 · 约 15 min}
+Three of the numbers above can be checked on the back of an envelope. Take $g=9.8\unit{m\,s^{-2}}$, $c=3.0\times10^{8}\unit{m\,s^{-1}}$, and $\nu=\eta/\rho=1.0\times10^{-6}\unit{m^2\,s^{-1}}$ for water.
+
+\begin{enumerate}[label=\textbf{\arabic*.}]
+  \item \textbf{A clock on a tower.} The fractional difference in rate between two clocks separated by a height $h$ is $gh/c^2$. Evaluate it for $h=22.5\unit{m}$. If the two clocks ran for a whole year, how far apart would their readings be?
+  \item \textbf{Less than a proton.} A gravitational wave of strain $h$ changes an arm of length $L$ by $\Delta L=hL$. Find $\Delta L$ for $h=1.0\times10^{-21}$ and $L=4\unit{km}$. What fraction of the diameter of a proton ($1.7\times10^{-15}\unit{m}$) is this?
+  \item \textbf{Two swimmers.} The Reynolds number is $\mathit{Re}=vL/\nu$. Estimate it for a person ($L\sim1\unit{m}$, $v\sim1\unit{m\,s^{-1}}$) and for a bacterium ($L\sim1\,\mupmu\mathrm{m}$, $v\sim30\,\mupmu\mathrm{m\,s^{-1}}$). By how many orders of magnitude do they differ?
+\end{enumerate}
+
+\sub{Answers}
+\note{1.\ $gh/c^2=2.45\times10^{-15}$; over one year ($3.16\times10^{7}\unit{s}$) the readings differ by about $7.7\times10^{-8}\unit{s}$, or 77 ns.\quad 2.\ $\Delta L=4\times10^{-18}\unit{m}$, about $1/400$ of the diameter of a proton.\quad 3.\ $\mathit{Re}\sim10^{6}$ for the person and $\sim3\times10^{-5}$ for the bacterium, a difference of between ten and eleven orders of magnitude.}
+
+\end{document}
